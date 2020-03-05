@@ -6,7 +6,7 @@ import com.agora.hackathon.team5.model.Content;
 
 public interface ContentService {
 
-	Content getContentByPubCode(String pub_code);
+	Content getContentByPubCode(String pubCode);
 
 	List<Content> findAllContent();
 

@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.agora.hackathon.team5.gateway.LyticsGateway;
 import com.agora.hackathon.team5.model.Content;
+import com.agora.hackathon.team5.model.Recommendation;
 import com.agora.hackathon.team5.service.ContentService;
 
 @RestController
@@ -16,8 +18,11 @@ public class ContentController {
 
 	private ContentService contentService;
 
-	public ContentController(ContentService contentService){
+	private LyticsGateway lyticsGateway;
+
+	public ContentController(ContentService contentService,LyticsGateway lyticsGateway){
 		this.contentService = contentService;
+		this.lyticsGateway = lyticsGateway;
 	}
 
 	@GetMapping( "/content")
@@ -38,5 +43,10 @@ public class ContentController {
 	@GetMapping("/delete/{id}")
 	public void deleteContentById(@PathVariable Long id){
 		contentService.deleteContentById(id);
+	}
+
+	@GetMapping("/recommend/{userId}")
+	public Recommendation[] getRecommendation(@PathVariable String userId){
+		return lyticsGateway.getAffinityInformation(userId);
 	}
 }

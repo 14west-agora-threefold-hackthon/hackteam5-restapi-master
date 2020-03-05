@@ -27,6 +27,11 @@ public class UserController {
 		return loginService.findAllUser();
 	}
 
+	@GetMapping( "/id/{id}")
+	public User findUserByID(@PathVariable String id, HttpServletRequest request) {
+		return loginService.findByID(id);
+	}
+
 	@GetMapping( "/username/{username}")
 	public User findUserByUsername(@PathVariable String username, HttpServletRequest request) {
 		return loginService.findByUsername(username);

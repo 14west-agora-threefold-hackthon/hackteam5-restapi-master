@@ -6,6 +6,8 @@ import com.agora.hackathon.team5.model.User;
 
 public interface UserService {
 
+	User findByID(String id);
+
 	User findByUsername(String username);
 
 	User findByUsernameAndPassword(String username, String password);

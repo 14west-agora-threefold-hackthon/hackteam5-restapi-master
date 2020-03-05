@@ -30,12 +30,12 @@ public class ContentController {
 		return contentService.getContentByPubCode(pubCode);
 	}
 
-	@DeleteMapping("/delete/all")
+	@GetMapping("/delete/all")
 	public void deleteAllContent(){
 		contentService.deleteAllContent();
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@GetMapping("/delete/{id}")
 	public void deleteContentById(@PathVariable Long id){
 		contentService.deleteContentById(id);
 	}

@@ -10,4 +10,7 @@ public interface ContentService {
 
 	List<Content> findAllContent();
 
+	void deleteAllContent();
+
+	void deleteContentById(Long id);
 }

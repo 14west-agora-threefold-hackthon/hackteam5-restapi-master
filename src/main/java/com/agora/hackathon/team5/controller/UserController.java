@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agora.hackathon.team5.exception.UserNotFoundException;
-import com.agora.hackathon.team5.model.Content;
 import com.agora.hackathon.team5.model.User;
 import com.agora.hackathon.team5.service.UserService;
 
 @RestController
-@RequestMapping("/login")
+//@RequestMapping("/login")
+@RequestMapping(value = "/api/user", produces = "application/json")
 public class UserController {
 
 	@Autowired
 	UserService loginService;
 
-	@GetMapping( "/user")
+	@GetMapping( "/all")
 	public Iterable<User> findAllUser() {
 		return loginService.findAllUser();
 	}
@@ -32,11 +32,6 @@ public class UserController {
 		return loginService.findByUsername(username);
 	}
 
-	/**
-	 * Gets the {@link ServerStatusResponse} for the server.
-	 *
-	 * @return the {@link ServerStatusResponse} instance containing information about the server
-	 */
 	@RequestMapping(value = "/username/{username}/password/{password}", method = RequestMethod.GET)
 	public @ResponseBody
 	User findAccount(@PathVariable String username, @PathVariable String password, HttpServletRequest request) {

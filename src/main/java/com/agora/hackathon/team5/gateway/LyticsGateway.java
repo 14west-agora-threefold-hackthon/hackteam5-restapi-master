@@ -7,17 +7,13 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.agora.hackathon.team5.model.Data;
-import com.agora.hackathon.team5.model.Recommendation;
 
-@RestController
-@RequestMapping("/api")
+@Component
 public class LyticsGateway {
 
 	@Value("${lytics.gateway.endpoint}")
@@ -29,7 +25,6 @@ public class LyticsGateway {
 		restTemplate = new RestTemplate();
 	}
 
-	@GetMapping("content/recommend/2419/user/user_id/{userId}")
 	public Data getAffinityInformation(@PathVariable String userId ) {
 
 		HttpHeaders headers = new HttpHeaders();

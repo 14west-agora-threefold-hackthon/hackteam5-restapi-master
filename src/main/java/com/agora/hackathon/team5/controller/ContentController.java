@@ -1,20 +1,17 @@
 package com.agora.hackathon.team5.controller;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agora.hackathon.team5.gateway.LyticsGateway;
 import com.agora.hackathon.team5.model.Content;
 import com.agora.hackathon.team5.model.Data;
-import com.agora.hackathon.team5.model.Recommendation;
 import com.agora.hackathon.team5.service.ContentService;
 
 @RestController
-@RequestMapping(value = "/api", produces = "application/json")
+@RequestMapping(value = "/content", produces = "application/json")
 public class ContentController {
 
 	private ContentService contentService;
@@ -26,12 +23,12 @@ public class ContentController {
 		this.lyticsGateway = lyticsGateway;
 	}
 
-	@GetMapping( "/content")
+	@GetMapping( "/")
 	public Iterable<Content> findAllContent() {
 		return contentService.findAllContent();
 	}
 
-	@GetMapping( "/content/{pubCode}")
+	@GetMapping( "/{pubCode}")
 	public Iterable<Content> getContentByPubCode(@PathVariable String pubCode) {
 		return contentService.getContentByPubCode(pubCode);
 	}

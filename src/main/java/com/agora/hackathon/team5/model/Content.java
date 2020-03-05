@@ -4,6 +4,9 @@ import org.springframework.data.annotation.Id;
 
 public class Content {
 
+	public Content() {
+	}
+	
 	public Content(Long ID, String post_title, String post_content, String pubCode) {
 		this.ID = ID;
 		this.post_title = post_title;

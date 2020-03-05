@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.agora.hackathon.team5.model.Content;
 import com.agora.hackathon.team5.repository.ContentRepository;
+import org.apache.commons.lang.math.RandomUtils;
 
 @Service
 public class ContentServiceImpl implements ContentService {
@@ -24,7 +25,7 @@ public class ContentServiceImpl implements ContentService {
 	@Override
 	public List<Content> findAllContent() {
 		
-		contentRepository.save(new Content(1L, "tst_title", "tst_content", "tst_pubcde"));
+		contentRepository.save(new Content(RandomUtils.nextLong(), "tst_title", "tst_content", "tst_pubcde"));
 		
 		return contentRepository.findAll();
 	}

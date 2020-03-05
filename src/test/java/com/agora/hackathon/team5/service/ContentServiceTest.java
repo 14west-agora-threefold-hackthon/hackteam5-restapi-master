@@ -14,12 +14,13 @@ import org.springframework.test.context.TestPropertySource;
 
 import com.agora.hackathon.team5.model.Content;
 import com.agora.hackathon.team5.repository.ContentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootTest
 @TestPropertySource(locations="classpath:test.properties")
 public class ContentServiceTest {
 
-	@Mock
+	@Autowired
 	private ContentRepository contentRepository;
 
 	@InjectMocks
@@ -33,12 +34,13 @@ public class ContentServiceTest {
 		testContent.setPost_title("test post title");
 		testContent.setPubCode("test pub code");
 
-		contentRepository.save(testContent);
-
-		Mockito.verify(contentRepository).save(testContent);
-
+		Content saved = contentRepository.save(testContent);
+		
+		
 		List<Content> returnedContentList = contentRepository.findAll();
+		System.out.println("######### contents: " + returnedContentList.size());
+		
 		int numReturned = returnedContentList.size();
-		Assertions.assertTrue(numReturned==1);
+		Assertions.assertTrue(numReturned>=1);
 	}
 }

@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 public class User {
 
 	@Id
-	private Long ID;
+	private String ID;
 
 	private String username;
 
@@ -18,7 +18,7 @@ public class User {
 	public User() {
 	}
 	
-	public User(Long ID, String username, String password, String firstName, String lastName) {
+	public User(String ID, String username, String password, String firstName, String lastName) {
 		this.ID = ID;
 		this.username = username;
 		this.password = password;
@@ -26,11 +26,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public Long getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(Long ID) {
+	public void setID(String ID) {
 		this.ID = ID;
 	}
 

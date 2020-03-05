@@ -8,7 +8,12 @@ public interface UserService {
 
 	User findByUsername(String username);
 
-	User findUser(String username, String pasword);
+	User findByUsernameAndPassword(String username, String password);
+
+	User findUser(String username, String password);
 
 	List<User> findAllUser();
+
+	void deleteAllUser();
+
 }

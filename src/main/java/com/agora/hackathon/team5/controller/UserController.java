@@ -28,11 +28,21 @@ public class UserController {
 	}
 
 	@GetMapping( "/username/{username}")
-	public User findUserByUsername(@PathVariable String username) {
+	public User findUserByUsername(@PathVariable String username, HttpServletRequest request) {
 		return loginService.findByUsername(username);
 	}
 
 	@RequestMapping(value = "/username/{username}/password/{password}", method = RequestMethod.GET)
+	public User findUserByUsernameAndPassword(@PathVariable String username, @PathVariable String password, HttpServletRequest request) {
+		return loginService.findByUsernameAndPassword(username, password);
+	}
+
+	@GetMapping("/delete/all")
+	public void deleteAllUser(){
+		loginService.deleteAllUser();
+	}
+
+	@RequestMapping(value = "/username2/{username}/password2/{password}", method = RequestMethod.GET)
 	public @ResponseBody
 	User findAccount(@PathVariable String username, @PathVariable String password, HttpServletRequest request) {
 		System.out.println("B_token: " + request.getHeader("token"));

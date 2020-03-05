@@ -11,7 +11,7 @@ public class Content {
 
 	private String post_content;
 
-	private String  pub_code;
+	private String pubCode;
 
 	public Long getID() {
 		return ID;
@@ -37,12 +37,12 @@ public class Content {
 		this.post_content = post_content;
 	}
 
-	public String getPub_code() {
-		return pub_code;
+	public String getPubCode() {
+		return pubCode;
 	}
 
-	public void setPub_code(String pub_code) {
-		this.pub_code = pub_code;
+	public void setPubCode(String pubCode) {
+		this.pubCode = pubCode;
 	}
 
 }

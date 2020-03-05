@@ -2,6 +2,7 @@ package com.agora.hackathon.team5.service;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.agora.hackathon.team5.model.Article;
@@ -23,6 +24,8 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public Article findByTitle(String title){
-		return articleRepository.findByTitle(title);
+		String newTitle = StringUtils.replace(title,"?", "\\?");
+		newTitle = StringUtils.replace(newTitle,"\"","\\\"" );
+		return articleRepository.findByTitle(newTitle);
 	}
 }

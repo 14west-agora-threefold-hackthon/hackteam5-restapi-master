@@ -9,6 +9,10 @@ public class Article {
 
 	private String title;
 
+	private String featured_image;
+
+	private String content;
+
 	public String getId() {
 		return id;
 	}
@@ -23,5 +27,21 @@ public class Article {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getFeatured_image() {
+		return featured_image;
+	}
+
+	public void setFeatured_image(String featured_image) {
+		this.featured_image = featured_image;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 }

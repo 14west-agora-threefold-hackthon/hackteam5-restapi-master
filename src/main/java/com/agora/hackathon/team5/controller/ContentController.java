@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.agora.hackathon.team5.gateway.LyticsGateway;
 import com.agora.hackathon.team5.model.Content;
+import com.agora.hackathon.team5.model.Data;
 import com.agora.hackathon.team5.model.Recommendation;
 import com.agora.hackathon.team5.service.ContentService;
 
@@ -46,7 +47,7 @@ public class ContentController {
 	}
 
 	@GetMapping("/recommend/{userId}")
-	public Recommendation[] getRecommendation(@PathVariable String userId){
+	public Data getRecommendation(@PathVariable String userId){
 		return lyticsGateway.getAffinityInformation(userId);
 	}
 }

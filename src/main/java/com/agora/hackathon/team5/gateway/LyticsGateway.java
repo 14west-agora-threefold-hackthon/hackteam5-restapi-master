@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.agora.hackathon.team5.model.Data;
 import com.agora.hackathon.team5.model.Recommendation;
 
 @RestController
@@ -29,15 +30,15 @@ public class LyticsGateway {
 	}
 
 	@GetMapping("content/recommend/2419/user/user_id/{userId}")
-	public Recommendation[] getAffinityInformation(@PathVariable String userId ) {
+	public Data getAffinityInformation(@PathVariable String userId ) {
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 		headers.set("Authorization", "tKwO7ANfxlWms4b4CKGZCAxx");
 		HttpEntity entity = new HttpEntity(headers);
 
-		HttpEntity<Recommendation[]> response =
-				restTemplate.exchange(endpoint, HttpMethod.GET, entity, Recommendation[].class);
+		HttpEntity<Data> response =
+				restTemplate.exchange(endpoint, HttpMethod.GET, entity, Data.class);
 
 		return response.getBody();
 	}

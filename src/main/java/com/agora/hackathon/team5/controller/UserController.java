@@ -15,16 +15,15 @@ import com.agora.hackathon.team5.model.User;
 import com.agora.hackathon.team5.service.UserService;
 
 @RestController
-//@RequestMapping("/login")
 @RequestMapping(value = "/api/user", produces = "application/json")
 public class UserController {
 
 	@Autowired
 	UserService loginService;
 
-	@GetMapping( "/all")
-	public Iterable<User> findAllUser() {
-		return loginService.findAllUser();
+	@GetMapping( "/init")
+	public Iterable<User> initUsers() {
+		return loginService.initUsers();
 	}
 
 	@GetMapping( "/id/{id}")

@@ -20,6 +20,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public List<User> initUsers() {
+		
+		userRepository.save(new User("000012345678", "bthomas", "1234", "Barry", "Thomas"));
+		userRepository.save(new User("000034567890", "rkim", "5678", "Ryan", "Kim"));
+		userRepository.save(new User("000076466861", "msuch", "7890", "Mike", "Such"));
+
+		return userRepository.findAll();
+	}
+
+	@Override
 	public User findByID(String id) {
 		return userRepository.findByID(id);
 	}
@@ -31,17 +41,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public 	User findByUsernameAndPassword(String username, String password) {
-		return customUserRepository.findByUsernameAndPassword(username, password);
-	}
-
-	@Override
-	public List<User> findAllUser() {
-		
-		userRepository.save(new User("000012345678", "bthomas", "1234", "Barry", "Thomas"));
-		userRepository.save(new User("000034567890", "rkim", "5678", "Ryan", "Kim"));
-		userRepository.save(new User("000076466861", "msuch", "7890", "Mike", "Such"));
-
-		return userRepository.findAll();
+//		return customUserRepository.findByUsernameAndPassword(username, password);
+		return userRepository.findByUsernameAndPassword(username, password);
 	}
 
 	@Override
@@ -49,6 +50,7 @@ public class UserServiceImpl implements UserService {
 		userRepository.deleteAll();
 	}
 
+	// This is a local method for app check, It does not connect to MongoDB
 	@Override
 	public User findUser(String username, String password) {
 		User user = null;

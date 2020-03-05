@@ -26,7 +26,7 @@ public class ContentController {
 	}
 
 	@GetMapping( "/content/{pubCode}")
-	public Content getContentByPubCode(@PathVariable String pubCode) {
+	public Iterable<Content> getContentByPubCode(@PathVariable String pubCode) {
 		return contentService.getContentByPubCode(pubCode);
 	}
 

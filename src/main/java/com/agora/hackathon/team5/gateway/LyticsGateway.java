@@ -31,9 +31,9 @@ public class LyticsGateway {
 		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 		headers.set("Authorization", "tKwO7ANfxlWms4b4CKGZCAxx");
 		HttpEntity entity = new HttpEntity(headers);
-
+		String finalEndpoint = endpoint + userId;
 		HttpEntity<Data> response =
-				restTemplate.exchange(endpoint, HttpMethod.GET, entity, Data.class);
+				restTemplate.exchange(finalEndpoint, HttpMethod.GET, entity, Data.class);
 
 		return response.getBody();
 	}

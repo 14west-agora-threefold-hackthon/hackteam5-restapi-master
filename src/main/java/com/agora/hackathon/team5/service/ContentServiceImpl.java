@@ -28,4 +28,15 @@ public class ContentServiceImpl implements ContentService {
 		
 		return contentRepository.findAll();
 	}
+
+	@Override
+	public void deleteAllContent() {
+		contentRepository.deleteAll();
+	}
+
+	@Override
+	public void deleteContentById(Long id) {
+		contentRepository.deleteById(id);
+	}
+
 }

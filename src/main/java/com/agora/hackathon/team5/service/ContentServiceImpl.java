@@ -18,7 +18,7 @@ public class ContentServiceImpl implements ContentService {
 	}
 
 	@Override
-	public Content getContentByPubCode(String pubCode) {
+	public List<Content> getContentByPubCode(String pubCode) {
 		return contentRepository.findByPubCode(pubCode);
 	}
 

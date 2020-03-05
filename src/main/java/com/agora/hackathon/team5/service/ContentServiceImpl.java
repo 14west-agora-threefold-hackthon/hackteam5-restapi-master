@@ -23,6 +23,9 @@ public class ContentServiceImpl implements ContentService {
 
 	@Override
 	public List<Content> findAllContent() {
+		
+		contentRepository.save(new Content(1L, "tst_title", "tst_content", "tst_pubcde"));
+		
 		return contentRepository.findAll();
 	}
 }

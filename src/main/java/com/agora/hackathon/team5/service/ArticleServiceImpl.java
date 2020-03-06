@@ -24,8 +24,8 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public Article findByTitle(String title){
-		String newTitle = StringUtils.replace(title,"?", "\\?");
-		newTitle = StringUtils.replace(newTitle,"\"","\\\"" );
-		return articleRepository.findByTitle(newTitle);
+//		String newTitle = StringUtils.replace(title,"?", "\\?");
+//		newTitle = StringUtils.replace(newTitle,"\"","\\\"" );
+		return articleRepository.findByTitle(title);
 	}
 }

@@ -24,7 +24,6 @@ public class ArticleController {
 
 	@GetMapping( "/{title}")
 	public Article findByTitle(@PathVariable String title) {
-		System.out.println("*******************************TITLE="+ title);
 		return articleService.findByTitle(title);
 	}
 }

@@ -24,6 +24,12 @@ public class UserServiceImpl implements UserService {
 		userRepository.save(new User("000012345678", "bthomas", "1234", "Barry", "Thomas"));
 		userRepository.save(new User("000034567890", "rkim", "5678", "Ryan", "Kim"));
 
+//		return userRepository.findAll();
+		return listUsers();
+	}
+
+	@Override
+	public List<User> listUsers() {
 		return userRepository.findAll();
 	}
 
@@ -46,6 +52,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteAllUser() {
 		userRepository.deleteAll();
+	}
+
+	@Override
+	public void deleteUserById(String id) {
+		userRepository.deleteUserByID(id);
+	}
+
+	@Override
+	public void registerUser(User user) {
+		userRepository.save(user);
 	}
 
 	// This is a local method for app check, It does not connect to MongoDB

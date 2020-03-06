@@ -7,6 +7,8 @@ import com.agora.hackathon.team5.model.User;
 public interface UserService {
 
 	List<User> initUsers();
+	
+	List<User> listUsers();
 
 	User findByID(String id);
 
@@ -16,7 +18,10 @@ public interface UserService {
 
 	void deleteAllUser();
 
-	User findUser(String username, String password);
+	void deleteUserById(String id);
 
+	void registerUser(User user);
+	
+	User findUser(String username, String password);
 
 }

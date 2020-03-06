@@ -12,4 +12,5 @@ public interface UserRepository  extends MongoRepository<User, Long> {
 
     public User findByUsernameAndPassword(String username, String password);
 
+	public void deleteUserByID(String id);
 }
